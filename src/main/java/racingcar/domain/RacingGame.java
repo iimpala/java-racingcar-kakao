@@ -35,7 +35,7 @@ public class RacingGame {
 			List<CarDto> carDtos = cars.stream()
 					.map(Car::toDto)
 					.collect(Collectors.toList());
-			ui.printCarStates(carDtos);
+			ui.printCar(carDtos);
 		}
 
 		ui.printWinners(findWinner());

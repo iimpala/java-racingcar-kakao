@@ -28,10 +28,8 @@ public class RacingGameUI {
 		System.out.println("실행 결과");
 	}
 
-	public void printCarStates(List<CarDto> carDtos) {
-		carDtos.forEach(carDto -> {
-			System.out.printf("%s : %s\n", carDto.getName(), "-".repeat(Math.max(0, carDto.getPosition())));
-		});
+	public void printCar(List<CarDto> carDtos) {
+		carDtos.forEach(carDto -> System.out.printf("%s : %s\n", carDto.getName(), "-".repeat(Math.max(0, carDto.getPosition()))));
 		System.out.println();
 	}
 
