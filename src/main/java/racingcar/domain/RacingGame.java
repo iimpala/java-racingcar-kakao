@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import racingcar.dto.CarDto;
+import racingcar.ErrorType;
+import racingcar.domain.dto.CarDto;
+import racingcar.view.RacingGameUI;
 
-import static racingcar.Car.MAX_CAR_NAME_LENGTH;
+import static racingcar.domain.Car.MAX_CAR_NAME_LENGTH;
 
 public class RacingGame {
 

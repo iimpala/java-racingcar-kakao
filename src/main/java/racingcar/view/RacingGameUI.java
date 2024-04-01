@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.view;
 
-import racingcar.dto.CarDto;
+import racingcar.ErrorType;
+import racingcar.domain.dto.CarDto;
 
 import java.util.List;
 import java.util.Scanner;

@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Objects;
-import racingcar.dto.CarDto;
+
+import racingcar.ErrorType;
+import racingcar.domain.dto.CarDto;
 
 public class Car {
 

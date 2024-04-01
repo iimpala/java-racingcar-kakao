@@ -1,4 +1,4 @@
-package racingcar.dto;
+package racingcar.domain.dto;
 
 public class CarDto {
 

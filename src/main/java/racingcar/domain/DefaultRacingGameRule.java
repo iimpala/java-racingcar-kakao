@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.domain;
 
-public class DefaultRacingGameRule implements RacingGameRule{
+import racingcar.util.NumberGenerator;
+
+public class DefaultRacingGameRule implements RacingGameRule {
 	private static final int PROCEED_THRESHOLD = 3;
 	private final NumberGenerator numberGenerator;
 	public DefaultRacingGameRule(NumberGenerator numberGenerator) {
