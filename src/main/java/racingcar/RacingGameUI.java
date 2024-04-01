@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.dto.CarState;
+import racingcar.dto.CarDto;
 
 import java.util.List;
 import java.util.Scanner;
@@ -27,14 +27,14 @@ public class RacingGameUI {
 		System.out.println("실행 결과");
 	}
 
-	public void printCarStates(List<CarState> carStates) {
-		carStates.forEach(carState -> {
-			System.out.printf("%s : %s\n", carState.getName(), "-".repeat(Math.max(0, carState.getPosition())));
+	public void printCarStates(List<CarDto> carDtos) {
+		carDtos.forEach(carDto -> {
+			System.out.printf("%s : %s\n", carDto.getName(), "-".repeat(Math.max(0, carDto.getPosition())));
 		});
 		System.out.println();
 	}
 
-	public void printWinners(List<CarState> winners) {
+	public void printWinners(List<CarDto> winners) {
 		System.out.print(winners.get(0).getName());
 		for (int i = 1; i < winners.size(); i++) {
 			System.out.printf(", %s", winners.get(i).getName());

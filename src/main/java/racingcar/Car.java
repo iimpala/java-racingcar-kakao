@@ -1,7 +1,7 @@
 package racingcar;
 
 import java.util.Objects;
-import racingcar.dto.CarState;
+import racingcar.dto.CarDto;
 
 public class Car {
 
@@ -25,8 +25,8 @@ public class Car {
 		}
 	}
 
-	public CarState getState() {
-		return new CarState(this.name, this.position);
+	public CarDto toDto() {
+		return new CarDto(this.name, this.position);
 	}
 
 	public void proceed() {

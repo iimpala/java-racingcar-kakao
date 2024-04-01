@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import racingcar.dto.CarState;
+import racingcar.dto.CarDto;
 
 import static racingcar.Car.MAX_CAR_NAME_LENGTH;
 
@@ -30,10 +30,10 @@ public class RacingGame {
 		ui.printResultHeader();
 		for (int i = 0; i < rounds; i++) {
 			playRound();
-			List<CarState> carStates = cars.stream()
-					.map(Car::getState)
+			List<CarDto> carDtos = cars.stream()
+					.map(Car::toDto)
 					.collect(Collectors.toList());
-			ui.printCarStates(carStates);
+			ui.printCarStates(carDtos);
 		}
 
 		ui.printWinners(findWinner());
@@ -158,12 +158,12 @@ public class RacingGame {
 				.forEach(Car::proceed);
 	}
 
-	private List<CarState> findWinner() {
+	private List<CarDto> findWinner() {
 		Car winner = Collections.max(cars, Car::comparePosition);
 
 		return cars.stream()
 			.filter(car -> winner.comparePosition(car) == 0)
-			.map(Car::getState)
+			.map(Car::toDto)
 				.collect(Collectors.toList());
 	}
 }
