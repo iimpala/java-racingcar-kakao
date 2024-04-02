@@ -1,14 +1,20 @@
 package racingcar.view;
 
-import racingcar.ErrorType;
 import racingcar.domain.dto.CarDto;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static racingcar.domain.Car.MAX_CAR_NAME_LENGTH;
-
 public class RacingGameUI {
+
+	private static final int MAX_CAR_NAME_LENGTH = 5;
+	private static final int MAX_ROUND_STRING_LENGTH = 5;
+	private static final String EMPTY_CAR_NAME = "자동차 이름은 공백일 수 없습니다.";
+	private static final String TOO_LONG_CAR_NAME = "자동차 이름은 5글자를 넘을 수 없습니다.";
+	private static final String DUPLICATED_CAR_NAME = "자동차 이름은 중복될 수 없습니다.";
+	private static final String EMPTY_ROUND = "라운드는 공백일 수 없습니다.";
+	private static final String TOO_LONG_ROUND = "라운드는 여섯 글자를 넘을 수 없습니다.";
+	private static final String NON_NUMERICAL_ROUND = "라운드는 숫자로만 이루어져야 합니다.";
 
 	private final Scanner scanner;
 
@@ -59,8 +65,8 @@ public class RacingGameUI {
 
 	}
 
-	public void printError(ErrorType errorType) {
-		System.out.println("[ERROR] "+ errorType.getMessage());
+	public void printError(String errorMsg) {
+		System.out.println("[ERROR] "+ errorMsg);
 	}
 
 
@@ -68,7 +74,7 @@ public class RacingGameUI {
 	// ui level validation
 	private boolean isValidCarNames(List<String> carNames) {
 		if (carNames.isEmpty()) {
-			printError(ErrorType.EMPTY_CAR_NAME);
+			printError(EMPTY_CAR_NAME);
 			return false;
 		}
 
@@ -81,7 +87,7 @@ public class RacingGameUI {
 				.collect(Collectors.toList());
 
 		if (!emptyCarNames.isEmpty()) {
-			printError(ErrorType.EMPTY_CAR_NAME);
+			printError(EMPTY_CAR_NAME);
 			return true;
 		}
 
@@ -94,7 +100,7 @@ public class RacingGameUI {
 				.collect(Collectors.toList());
 
 		if (!longCarNames.isEmpty()) {
-			printError(ErrorType.TOO_LONG_CAR_NAME);
+			printError(TOO_LONG_CAR_NAME);
 			return true;
 		}
 
@@ -105,7 +111,7 @@ public class RacingGameUI {
 		Set<String> uniqueName = new HashSet<>(carNameList);
 
 		if (uniqueName.size() != carNameList.size()) {
-			printError(ErrorType.DUPLICATED_CAR_NAME);
+			printError(DUPLICATED_CAR_NAME);
 			return true;
 		}
 
@@ -120,7 +126,7 @@ public class RacingGameUI {
 
 	private boolean isEmptyRounds(String round) {
 		if (round.isEmpty()) {
-			printError(ErrorType.EMPTY_ROUND);
+			printError(EMPTY_ROUND);
 			return true;
 		}
 		return false;
@@ -132,7 +138,7 @@ public class RacingGameUI {
 				.collect(Collectors.toList());
 
 		if (!nonNumericalCharacters.isEmpty()){
-			printError(ErrorType.NON_NUMERICAL_ROUND);
+			printError(NON_NUMERICAL_ROUND);
 			return true;
 		}
 
@@ -140,8 +146,8 @@ public class RacingGameUI {
 	}
 
 	private boolean isLongRounds(String round) {
-		if (round.length() > 5) {
-			printError(ErrorType.TOO_LONG_ROUND);
+		if (round.length() > MAX_ROUND_STRING_LENGTH) {
+			printError(TOO_LONG_ROUND);
 			return true;
 		}
 

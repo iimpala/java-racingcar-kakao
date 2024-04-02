@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-import racingcar.ErrorType;
 import racingcar.domain.dto.CarDto;
 
 public class Car {
@@ -23,7 +22,7 @@ public class Car {
 
 	private void validateCarName(String name) {
 		if (name.length() > MAX_CAR_NAME_LENGTH) {
-			throw new RuntimeException(ErrorType.TOO_LONG_CAR_NAME.getMessage());
+			throw new RuntimeException("자동차 이름은 5글자를 넘을 수 없습니다.");
 		}
 	}
 
