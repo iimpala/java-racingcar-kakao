@@ -2,7 +2,6 @@ package racingcar;
 
 import racingcar.controller.RacingGameController;
 import racingcar.domain.DefaultRacingGameRule;
-import racingcar.domain.RacingGame;
 import racingcar.domain.RacingGameRule;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.RacingGameUI;
